@@ -6,6 +6,7 @@ import styles from "./TaskForm.module.css";
 
 import { ITaskList } from "../../interfaces/TaskList";
 import { ChangeEvent, FormEvent, SetStateAction, useState } from "react";
+import { toast } from "react-toastify";
 
 type Props = {
   btnText: string;
@@ -22,6 +23,13 @@ const TaskForm = ({ btnText, taskList, setTaskList }: Props) => {
   const addTaskHandle = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    // Checando se veio algo no título do TODO
+
+    if (title.length === 0) {
+      toast.error("Você precisa inserir algo!");
+      return;
+    }
+
     setId(Date.now());
 
     const newTask: ITaskList = {
@@ -30,8 +38,7 @@ const TaskForm = ({ btnText, taskList, setTaskList }: Props) => {
     };
 
     setTaskList([...taskList, newTask]);
-
-    console.log(taskList);
+    toast.success("Tarefa criada!");
 
     // ZERANDO INPUTS
     setTitle("");
