@@ -1,0 +1,26 @@
+:root {
+  --bgColor: #16161a;
+  --paragraphColor: #94a1b2;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+}
+
+.main-container {
+  min-height: 100dvh;
+  background-color: var(--bgColor);
+  color: var(--paragraphColor);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: aliceblue;
+}
